@@ -3,11 +3,7 @@ from PIL import Image, ImageOps, ExifTags
 import numpy as np
 
 # Define the input file paths
-filenames = [
-    "C:/Users/39327/OneDrive - Università degli Studi di Padova/Desktop/1.JPG",
-    "C:/Users/39327/OneDrive - Università degli Studi di Padova/Desktop/2.JPG",
-    "C:/Users/39327/OneDrive - Università degli Studi di Padova/Desktop/3.JPG"
-]
+filenames = #[File_path]
 
 # Initialize the list for storing images
 images = []
