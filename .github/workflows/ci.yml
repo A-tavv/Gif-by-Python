@@ -1,17 +1,18 @@
-name : Python CI
+name: Python CI
 
 on:
   push:
     branches:
-      - main
-  pull request:
+      - main  # Runs the workflow when you push to 'main' branch
+  pull_request:
     branches:
-      - main
+      - main  # Runs when a PR is opened to 'main'
+
 jobs:
   test:
-     runs-out: ubuntu-latest
-     
-     steps:
+    runs-on: ubuntu-latest  # The machine where the tests will run
+
+    steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
