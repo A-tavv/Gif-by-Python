@@ -27,3 +27,19 @@ jobs:
 
       - name: Check If App is Running
         run: ps aux | grep python
+      - name: Capture Logs
+        run: cat output.log || echo "No logs found"
+    
+      - name: Upload Logs as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+  name: application-logs
+       path: output.log
+     - name: Check Running Processes
+       run: ps aux | grep python
+     - name: Monitor System Usage
+       run: |
+       echo "Memory Usage:"
+       free -m
+       echo "CPU Usage:"
+       top -b -n1 | head -n 10
