@@ -1,0 +1,29 @@
+name: Auto-Deploy & Monitor
+
+on:
+  push:
+    branches:
+      - main  # Runs on every push to main
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Start Application
+        run: nohup python Gif-by-Python.py > output.log 2>&1 &
+
+      - name: Check If App is Running
+        run: ps aux | grep python
